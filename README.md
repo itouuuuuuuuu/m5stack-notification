@@ -4,7 +4,7 @@
 FirebaseとWi-Fiの情報を設定するために、 下記コマンドで `secret.h` ファイルを作成します。
 
 ```
-$ cp secret.h.sample secret.h
+$ cp ./src/secret.h.sample ./src/secret.h
 ```
 
 作成された `secret.h` に、FirebaseとWi-Fi情報を記述して保存します。

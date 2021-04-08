@@ -6,14 +6,13 @@
 
 FirebaseData firebaseData;
 
-// bool statusA = true;
-// bool statusB = true;
-bool statusC = true;
+int count = 0;
 
-bool buttonProcess(bool status) {
+bool buttonProcess() {
+  count++;
   M5.Lcd.fillScreen(BLACK);
 
-  if (Firebase.setBool(firebaseData, "/data/", status)) {
+  if (Firebase.setInt(firebaseData, "/count/", count)) {
     //Success
     M5.Lcd.setCursor(0, 0);
     M5.Lcd.print("Set data success");
@@ -24,15 +23,12 @@ bool buttonProcess(bool status) {
   }
 
   M5.Lcd.setCursor(0, 20);
-  if (status) {
-    M5.Lcd.print("button toggled: true");
-  } else {
-    M5.Lcd.print("button toggled: false");
-  }
-  return status = !status;
+  M5.Lcd.print("count: " + String(count));
+  return 0;
 }
 
 void setup() {
+
   M5.begin();
   Serial.begin(115200);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
@@ -67,16 +63,8 @@ void setup() {
 }
 
 void loop() {
-  // if (M5.BtnA.wasPressed()) {
-  //   statusA = buttonProcess("BtnA", statusA);
-  // }
-
-  // if (M5.BtnB.wasPressed()) {
-  //   statusB = buttonProcess("BtnB", statusB);
-  // }
-
   if (M5.BtnC.wasPressed()) {
-    statusC = buttonProcess(statusC);
+    buttonProcess();
   }
 
   M5.update();

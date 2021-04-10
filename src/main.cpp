@@ -113,6 +113,7 @@ void loop() {
 
       M5.Lcd.setCursor(0, 0, 1);
       M5.Lcd.fillScreen(BLACK);
+      M5.Lcd.setTextSize(3);
       M5.Lcd.println("Connected!");
       M5.Lcd.setTextSize(1);
       M5.Lcd.println("Please connect internet and access below url!");
@@ -211,8 +212,8 @@ void loop() {
             s += "    <header>M5StackNotification WiFi接続</header>";
             s += "    <main>";
             s += "      <form method=\"GET\" action=\"/connect\">";
-            s += "        <input type=\"text\" name=\"ssid\" placeholder=\"SSID\" value=\"FS030W_P64151\" />";
-            s += "        <input type=\"password\" name=\"password\" placeholder=\"Password\"  value=\"13480614\" />";
+            s += "        <input type=\"text\" name=\"ssid\" placeholder=\"SSID\" value=\"itopixel\" />";
+            s += "        <input type=\"password\" name=\"password\" placeholder=\"Password\"  value=\"12345678\" />";
             s += "        <button type=\"submit\">接続する</button>";
             s += "      </form>";
             s += "    </main>";
